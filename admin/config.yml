@@ -1,6 +1,8 @@
 backend:
-  name: git-gateway
+  name: github
+  repo: Sai-Manikanta/photography-site
   branch: main
+  auth_type: implicit
 
 media_folder: "assets/images"
 public_folder: "/assets/images"
@@ -13,14 +15,6 @@ collections:
         name: "home"
         file: "content/home.json"
         fields:
-          - label: "Title"
-            name: "title"
-            widget: "string"
-
-          - label: "Description"
-            name: "description"
-            widget: "text"
-
-          - label: "Hero Image"
-            name: "image"
-            widget: "image"
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Description", name: "description", widget: "text" }
+          - { label: "Hero Image", name: "image", widget: "image" }
