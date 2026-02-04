@@ -5,7 +5,7 @@
     <title>Content Manager</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- Netlify Identity Widget -->
+    <!-- Netlify Identity -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
     <!-- Decap CMS -->
@@ -18,6 +18,15 @@
           if (!user) {
             window.netlifyIdentity.open();
           }
+        });
+
+        // 🔑 THIS IS THE IMPORTANT PART
+        window.netlifyIdentity.on("login", (user) => {
+          window.location.href = "/admin/";
+        });
+
+        window.netlifyIdentity.on("error", (err) => {
+          console.error("Netlify Identity error:", err);
         });
       }
     </script>
